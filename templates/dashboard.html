@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <h1>Dashboard</h1>
+        <h2>Upcoming Events:</h2>
+        {% for event in events %}
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+            <p>Hosted by: {{ event.user.username }}</p>
+        {% endfor %}
+        <h2>Chat:</h2>
+        <form method="POST" action="/send_message">
+            <label for="message">Enter your message:</label><br>
+            <input type="text" id="message" name="message"><br>
+            <input type="submit" value="Send">
+        </form>
+        <br>
+        <h3>Messages:</h3>
+        {% for message
